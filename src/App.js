@@ -1,10 +1,16 @@
 import React from 'react';
-import './App.css';
+import Header from './components/Header';
+import Headline from './components/Headline';
+import Schedule from './components/Schedule';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-
+      <Header/>
+      <Headline/>
+      <Schedule/>
+      <Footer/>
     </div>
   );
 }
