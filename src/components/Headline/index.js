@@ -11,10 +11,10 @@ import {
     Wrapper
 } from './style';
 
-const Headline = () => {
-    const daysArr = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-    const OFFSET_DAY = 25;
+const daysArr = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+const OFFSET_DAY = 25;
 
+const Headline = () => {
     return(
         <Wrapper>
             <Container>

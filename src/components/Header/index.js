@@ -1,11 +1,11 @@
 import React from 'react';
 import {Button, Container, Title} from './style';
 
-const Header = () => {
+const Header = ({onClickBtn}) => {
     return (
         <Container>
             <Title>Interview Calendar</Title>
-            <Button/>
+            <Button onClick={() => onClickBtn(true)}/>
         </Container>
     )
 }
