@@ -18,8 +18,6 @@ export const EventsGrid = styled.div`
 display: grid;
 grid-template-columns: repeat(7, 1fr);
 width: 100%;
-// margin-top: -22px;
-// z-index: -1;
 `
 export const EventsDay = styled.div`
 border-left: 1px solid gainsboro;
@@ -35,10 +33,10 @@ border-right: 1px solid gainsboro;
 `
 export const EventItem = styled.div`
 height: 62px;
-border-top: 2px solid gainsboro;
-border-bootom: 2px solid gainsboro;
-box-shadow: ${props => props.isEvent &&= '0 0 0 2px white inset'};
-background-color: ${props => props.isEvent &&= 'lavender'};
+border-top: 1px solid gainsboro;
+border-bottom: 1px solid gainsboro;
+box-shadow: 0 0 0 2px white inset;
+background-color: ${({isEvent}) => isEvent &&= 'lavender'};
 cursor: pointer;
 
 &:last-child {

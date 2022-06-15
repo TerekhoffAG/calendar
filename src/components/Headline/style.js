@@ -39,7 +39,7 @@ height: 48px;
 text-align: center;
 border-radius: 100%;
 color: ${props => props.isDayNow &&= 'white'};
-background-color: ${props => props.isDayNow &&= 'red'};
+background-color: ${({isDayNow}) => isDayNow &&= 'red'};
 `
 
 export const ContainerMonths = styled.div`
