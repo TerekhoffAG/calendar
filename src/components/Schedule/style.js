@@ -39,6 +39,10 @@ box-shadow: 0 0 0 2px white inset;
 background-color: ${({isEvent}) => isEvent &&= 'lavender'};
 cursor: pointer;
 
+&:blur {
+    background-color: red;
+}
+
 &:last-child {
     border-bottom: none;
 }
