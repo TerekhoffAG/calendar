@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {Container, EventsGrid, EventsDay, TimeDay, TimeLine, EventItem} from './style';
+import EventItem from './EventItem';
+import {Container, EventsGrid, EventsDay, TimeDay, TimeLine} from './style';
 
 
 const MOCK_EVENTS_ARR = [[4], [4, 12], [4], [4, 7], [4, 9], [4, 0], [4]];
@@ -9,19 +10,21 @@ const WORK_TIME_LINE = 12;
 const DAY_EVENTS = 13;
 
 const Schedule = ({onClickEvent}) => {
-    const [isActiveEvent, setActiveEvent] = useState(false);
+    const [isReset, setReset] = useState(true)
 
     const checkDayEvent = (eventsArr, weekDay, dayEvent) => {
         return eventsArr[weekDay].includes(dayEvent);
     };
 
-    const handlerClickEvent = (e) => {
+    const handleClickEvent = (e) => {
         const [weekDay, dayEvent] = e.target.getAttribute('id').split(',');
 
         if (checkDayEvent(MOCK_EVENTS_ARR, weekDay, Number(dayEvent))) {
             onClickEvent(true);
+            setReset(false);
         } else {
             onClickEvent(false);
+            setReset(true);
         }
     };
 
@@ -37,17 +40,19 @@ const Schedule = ({onClickEvent}) => {
                     })
                 }
             </TimeLine>
-            <EventsGrid onClick={handlerClickEvent}>
+            <EventsGrid>
                 {
                     Array.from({length: DAYS_WEEK}, (item, index) => {
                         const weekDayIndex = index;
                         return <EventsDay key={index}>
                             {
                                 Array.from({length: DAY_EVENTS}, (item, index) => {
-                                    return <EventItem 
+                                    return <EventItem
                                                 isEvent={checkDayEvent(MOCK_EVENTS_ARR, weekDayIndex, index)}
                                                 key={index} 
                                                 id={`${weekDayIndex},${index}`}
+                                                handle={handleClickEvent}
+                                                reset={isReset}
                                             />
                                 })
                             }

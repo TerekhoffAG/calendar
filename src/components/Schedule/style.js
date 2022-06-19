@@ -31,17 +31,13 @@ border-right: 1px solid gainsboro;
     border-left: none;
 }
 `
-export const EventItem = styled.div`
+export const Event = styled.div`
 height: 62px;
 border-top: 1px solid gainsboro;
 border-bottom: 1px solid gainsboro;
 box-shadow: 0 0 0 2px white inset;
-background-color: ${({isEvent}) => isEvent &&= 'lavender'};
-cursor: pointer;
-
-&:blur {
-    background-color: red;
-}
+background-color: ${({isEvent, isActive, reset}) => isActive && isEvent ? 'MediumPurple' : isEvent &&'lavender'};
+cursor: ${({isEvent}) => isEvent && 'pointer'};
 
 &:last-child {
     border-bottom: none;
