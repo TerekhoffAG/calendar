@@ -14,7 +14,7 @@ font-size: 28px;
 color: red;
 `
 export const DeleteEventBtn = styled.div`
-display: block;
+display: ${({isShow}) => isShow ? 'block' : 'none'};
 border: none;
 background: none;
 cursor: pointer;

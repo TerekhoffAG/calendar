@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, DayLabel, DeleteEventBtn } from './style';
 
-const Footer = () => {
+const Footer = ({isShowDeleteBtn}) => {
     return(
         <Container>
             <DayLabel>Today</DayLabel>
-            <DeleteEventBtn>Delete</DeleteEventBtn>
+            <DeleteEventBtn isShow={isShowDeleteBtn}>Delete</DeleteEventBtn>
         </Container>
     )
 }
